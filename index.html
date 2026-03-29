@@ -3,109 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>876 MEDIA EAT</title>
+    <title>876 MEDIA EAT | Digital Menu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #000; color: white; font-family: sans-serif; }
-        .menu-card { background: #111; border: 1px solid #222; border-radius: 15px; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .add-btn { background: #f97316; color: white; font-weight: 900; padding: 10px 20px; border-radius: 10px; }
-        #cart-footer { position: fixed; bottom: 0; left: 0; right: 0; background: #222; padding: 20px; display: none; border-top: 2px solid #f97316; }
+        body { background-color: #09090b; -webkit-tap-highlight-color: transparent; }
+        .glass { background: rgba(24, 24, 27, 0.9); backdrop-filter: blur(12px); }
+        .cart-bounce { animation: bounce 0.3s ease-in-out; }
+        @keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
     </style>
 </head>
-<body class="p-4 pb-40">
+<body class="text-zinc-100 font-sans pb-36 uppercase tracking-tight">
 
-    <header class="text-center py-10">
-        <h1 class="text-4xl font-black text-orange-500 italic">876 MEDIA EAT</h1>
-        <p class="text-zinc-500 text-xs tracking-widest mt-2 uppercase">Montego Bay, Jamaica</p>
+    <header class="sticky top-0 z-50 glass border-b border-zinc-800 p-6 text-center">
+        <h1 class="text-3xl font-black tracking-tighter text-orange-500 italic leading-none">876 MEDIA EAT</h1>
+        <p class="text-zinc-500 text-[10px] tracking-widest mt-2">Authentic Jerk • Montego Bay</p>
     </header>
 
-    <div class="max-w-md mx-auto">
-        <div class="menu-card">
-            <div><p class="font-bold">Quarter Jerk Chicken</p><p class="text-orange-500">$1,200</p></div>
-            <button onclick="addItem('Jerk Chicken', 1200)" class="add-btn">ADD +</button>
-        </div>
+    <main class="p-4 max-w-md mx-auto space-y-10">
 
-        <div class="menu-card">
-            <div><p class="font-bold">Jerk Pork (1/2 lb)</p><p class="text-orange-500">$1,500</p></div>
-            <button onclick="addItem('Jerk Pork', 1500)" class="add-btn">ADD +</button>
-        </div>
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-orange-500">
+                <span class="w-8 h-[2px] bg-orange-500"></span> THE MAIN GRILL
+            </h2>
+            <div class="grid gap-6">
 
-        <div class="menu-card">
-            <div><p class="font-bold">Boston Bay Sausage</p><p class="text-orange-500">$900</p></div>
-            <button onclick="addItem('Sausage', 900)" class="add-btn">ADD +</button>
-        </div>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-chicken.png" alt="Quarter Jerk Chicken" class="w-full h-48 object-cover">
+                    <div class="p-5 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-bold">Quarter Jerk Chicken</h3>
+                            <span class="text-orange-500 font-black">$1,200</span>
+                        </div>
+                        <button onclick="addToCart('Quarter Jerk Chicken', 1200)" class="bg-zinc-100 text-black px-5 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                    </div>
+                </div>
 
-        <div class="menu-card">
-            <div><p class="font-bold">876 Jerk Burger</p><p class="text-orange-500">$1,400</p></div>
-            <button onclick="addItem('Burger', 1400)" class="add-btn">ADD +</button>
-        </div>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-pork.png" alt="Jerk Pork" class="w-full h-48 object-cover">
+                    <div class="p-5 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-bold">Jerk Pork (1/2 lb)</h3>
+                            <span class="text-orange-500 font-black">$1,500</span>
+                        </div>
+                        <button onclick="addToCart('Jerk Pork (1/2 lb)', 1500)" class="bg-zinc-100 text-black px-5 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                    </div>
+                </div>
 
-        <div class="menu-card">
-            <div><p class="font-bold">Veggie Jerk Pizza</p><p class="text-orange-500">$1,800</p></div>
-            <button onclick="addItem('Veggie Pizza', 1800)" class="add-btn">ADD +</button>
-        </div>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-sausage.png" alt="Boston Bay Sausage" class="w-full h-48 object-cover">
+                    <div class="p-5 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-bold">Boston Bay Sausage</h3>
+                            <span class="text-orange-500 font-black">$900</span>
+                        </div>
+                        <button onclick="addToCart('Boston Bay Sausage', 900)" class="bg-zinc-100 text-black px-5 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                    </div>
+                </div>
 
-        <div class="mt-10 mb-4 text-zinc-500 text-xs font-bold uppercase tracking-widest">Cool Down</div>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-burger.png" alt="876 Jerk Burger" class="w-full h-48 object-cover">
+                    <div class="p-5 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-bold">876 Jerk Burger</h3>
+                            <span class="text-orange-500 font-black">$1,400</span>
+                        </div>
+                        <button onclick="addToCart('876 Jerk Burger', 1400)" class="bg-zinc-100 text-black px-5 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                    </div>
+                </div>
 
-        <div class="menu-card">
-            <div><p class="font-bold">Red Stripe</p><p class="text-orange-500">$500</p></div>
-            <button onclick="addItem('Red Stripe', 500)" class="add-btn">ADD +</button>
-        </div>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-fish.png" alt="Grilled Jerk Fish" class="w-full h-48 object-cover">
+                    <div class="p-5 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-bold">Grilled Jerk Fish</h3>
+                            <span class="text-orange-500 font-black">$2,500</span>
+                        </div>
+                        <button onclick="addToCart('Grilled Jerk Fish', 2500)" class="bg-zinc-100 text-black px-5 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                    </div>
+                </div>
 
-        <div class="menu-card">
-            <div><p class="font-bold">Coconut Water</p><p class="text-orange-500">$400</p></div>
-            <button onclick="addItem('Coconut Water', 400)" class="add-btn">ADD +</button>
-        </div>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="veggie-pizza.png" alt="Veggie Jerk Pizza" class="w-full h-48 object-cover">
+                    <div class="p-5 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-bold">Veggie Jerk Pizza</h3>
+                            <span class="text-orange-500 font-black">$1,800</span>
+                        </div>
+                        <button onclick="addToCart('Veggie Jerk Pizza', 1800)" class="bg-zinc-100 text-black px-5 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                    </div>
+                </div>
 
-        <div class="mt-10">
-            <p class="text-xs text-zinc-500 mb-2">SPECIAL NOTES (No onions, etc.)</p>
-            <textarea id="notes" class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-sm" placeholder="Optional notes..."></textarea>
-        </div>
-    </div>
-
-    <div id="cart-footer">
-        <div class="flex justify-between items-center max-w-md mx-auto">
-            <div>
-                <p id="total-text" class="text-2xl font-black leading-none">$0</p>
-                <button onclick="resetCart()" class="text-xs text-zinc-500 mt-2 uppercase">Clear All</button>
             </div>
-            <button onclick="sendOrder()" class="bg-white text-black px-8 py-3 rounded-xl font-black uppercase italic">Order Now</button>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-blue-400">
+                <span class="w-8 h-[2px] bg-blue-400"></span> THE COOL DOWN
+            </h2>
+            <div class="bg-zinc-900 rounded-3xl border border-zinc-800 divide-y divide-zinc-800">
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Red Stripe</span>
+                    <button onclick="addToCart('Red Stripe', 500)" class="text-orange-500 font-black">$500 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Dragon Stout</span>
+                    <button onclick="addToCart('Dragon Stout', 600)" class="text-orange-500 font-black">$600 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Coconut Water</span>
+                    <button onclick="addToCart('Coconut Water', 400)" class="text-orange-500 font-black">$400 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Grapefruit Ting</span>
+                    <button onclick="addToCart('Grapefruit Ting', 350)" class="text-orange-500 font-black">$350 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Homemade Sorrel</span>
+                    <button onclick="addToCart('Homemade Sorrel', 450)" class="text-orange-500 font-black">$450 +</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-2">
+            <h3 class="text-xs uppercase tracking-widest text-zinc-500 font-bold mb-4 px-2">Special Instructions</h3>
+            <textarea id="notes" rows="2" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-4 text-sm focus:ring-1 focus:ring-orange-500 outline-none normal-case" placeholder="e.g. No onions, extra spicy, etc."></textarea>
+        </section>
+
+    </main>
+
+    <!-- Cart bar — controlled purely by JS, no Tailwind hidden class conflict -->
+    <div id="cart-bar" style="display:none;" class="fixed bottom-6 left-4 right-4 glass border border-zinc-700 p-4 rounded-3xl shadow-2xl z-50">
+        <div class="flex justify-between items-center mb-3">
+            <input id="table-num" type="text" placeholder="Table number / name"
+                class="flex-1 mr-3 bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-2 text-sm font-bold normal-case placeholder-zinc-600 focus:outline-none focus:border-orange-500">
+            <button onclick="clearCart()" class="text-zinc-500 hover:text-red-500 transition shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+            </button>
+        </div>
+        <div class="flex justify-between items-center">
+            <div>
+                <p id="cart-count" class="text-[10px] text-zinc-500 font-bold">0 ITEMS</p>
+                <p id="cart-total" class="text-xl font-black text-white">$0</p>
+            </div>
+            <button onclick="checkout()" class="bg-orange-600 hover:bg-orange-500 text-white px-8 py-3 rounded-2xl font-black text-sm tracking-tighter transition shadow-lg shadow-orange-900/40">
+                ORDER NOW
+            </button>
         </div>
     </div>
 
     <script>
-        const WHATSAPP_NUM = "18763749534";
-        const FORMSPREE_URL = "https://formspree.io/f/maqleaqv";
-        let order = [];
+        // ── CONFIG ───────────────────────────────────────────────
+        const WA_PHONE  = "18763749534";   // WhatsApp number
+        const FORMSPREE = "maqleaqv";      // Formspree form ID
+        // ────────────────────────────────────────────────────────
 
-        function addItem(name, price) {
-            order.push({ name, price });
-            updateCart();
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateUI();
+            const bar = document.getElementById('cart-bar');
+            bar.classList.add('cart-bounce');
+            setTimeout(() => bar.classList.remove('cart-bounce'), 300);
         }
 
-        function resetCart() {
-            order = [];
-            updateCart();
-        }
-
-        function updateCart() {
-            const footer = document.getElementById('cart-footer');
-            const totalDisplay = document.getElementById('total-text');
-            
-            if (order.length > 0) {
-                footer.style.display = 'block';
-            } else {
-                footer.style.display = 'none';
+        function clearCart() {
+            if (confirm("Empty your tray?")) {
+                cart = [];
+                updateUI();
             }
-
-            let total = 0;
-            order.forEach(item => total += item.price);
-            totalDisplay.innerText = "$" + total.toLocaleString();
         }
 
-        function sendOrder() {
-            let table = prompt("What is your Table Number?");
-            if (!table) return;
+        function updateUI() {
+            const bar   = document.getElementById('cart-bar');
+            const count = document.getElementById('cart-count');
+            const total = document.getElementById('cart-total');
 
-            let notes = document.getElementById('notes').value;
-            let total =
+            bar.style.display = cart.length > 0 ? 'block' : 'none';
+
+            const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+            count.innerText = `${cart.length} ITEM${cart.length > 1 ? 'S' : ''}`;
+            total.innerText = `$${totalPrice.toLocaleString()}`;
+        }
+
+        function checkout() {
+            const table = document.getElementById('table-num').value.trim();
+            if (!table) {
+                const input = document.getElementById('table-num');
+                input.focus();
+                input.placeholder = "⚠️ Enter table number first!";
+                return;
+            }
+            if (cart.length === 0) return;
+
+            const notes = document.getElementById('notes').value.trim();
+
+            // Group duplicate items
+            const counts = {};
+            cart.forEach(item => {
+                if (!counts[item.name]) counts[item.name] = { qty: 0, price: item.price };
+                counts[item.name].qty++;
+            });
+
+            let summary = `*876 MEDIA EAT — TABLE ${table.toUpperCase()}*\n——————————————\n`;
+            for (const [name, data] of Object.entries(counts)) {
+                summary += `${data.qty}x ${name.toUpperCase()} — $${(data.qty * data.price).toLocaleString()}\n`;
+            }
+            if (notes) summary += `\n📝 *NOTES:* ${notes}\n`;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            summary += `——————————————\n💰 *TOTAL: $${total.toLocaleString()} JMD*`;
+
+            // Formspree email — Accept: application/json prevents page redirect on GitHub Pages
+            fetch(`https://formspree.io/f/${FORMSPREE}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({ table, order: summary, total: `$${total.toLocaleString()} JMD`, notes })
+            }).catch(err => console.warn("Formspree error:", err));
+
+            // WhatsApp
+            window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(summary)}`, '_blank');
+
+            // Reset
+            cart = [];
+            document.getElementById('notes').value = '';
+            document.getElementById('table-num').value = '';
+            updateUI();
+        }
+    </script>
+</body>
+</html>
