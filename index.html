@@ -8,22 +8,20 @@
     <style>
         body { background-color: #09090b; -webkit-tap-highlight-color: transparent; }
         .glass { background: rgba(24, 24, 27, 0.9); backdrop-filter: blur(12px); }
-        .cart-bounce { animation: bounce 0.3s ease-in-out; }
-        @keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
         #thank-you { display: none; }
     </style>
 </head>
 <body class="text-zinc-100 font-sans pb-40 uppercase tracking-tight">
 
     <header class="sticky top-0 z-50 glass border-b border-zinc-800 p-6 text-center">
-        <h1 class="text-3xl font-black tracking-tighter text-orange-500 italic leading-none">876 MEDIA EAT</h1>
+        <h1 class="text-3xl font-black tracking-tighter text-orange-500 italic">876 MEDIA EAT</h1>
         <p class="text-zinc-500 text-[10px] tracking-widest mt-2 font-bold">Authentic Jerk • Montego Bay</p>
     </header>
 
     <div id="thank-you" class="fixed inset-0 z-[100] glass flex items-center justify-center p-6 text-center">
         <div class="bg-zinc-900 border border-orange-500 p-10 rounded-3xl shadow-2xl">
             <h2 class="text-2xl font-black text-orange-500 mb-2">ORDER RECEIVED!</h2>
-            <p class="text-sm text-zinc-400 normal-case">Redirecting to WhatsApp to notify the kitchen...</p>
+            <p class="text-sm text-zinc-400 normal-case">Redirecting to WhatsApp...</p>
         </div>
     </div>
 
@@ -33,39 +31,54 @@
             <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-orange-500">
                 <span class="w-8 h-[2px] bg-orange-500"></span> THE MAIN GRILL
             </h2>
-            <div class="grid gap-6">
-                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
-                    <img src="jerk-chicken.png" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=876+MEDIA+EAT'">
-                    <div class="p-5 flex justify-between items-center">
-                        <div>
-                            <h3 class="font-bold text-sm">Quarter Jerk Chicken</h3>
-                            <span class="text-orange-500 font-black">$1,200</span>
-                        </div>
-                        <button onclick="addToCart('Quarter Jerk Chicken', 1200)" class="bg-zinc-100 text-black px-6 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+            <div class="grid gap-4">
+                
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-5 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-sm">Quarter Jerk Chicken</h3>
+                        <span class="text-orange-500 font-black">$1,200</span>
                     </div>
+                    <button onclick="addToCart('Quarter Jerk Chicken', 1200)" class="bg-zinc-100 text-black px-6 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
                 </div>
 
-                <div class="space-y-3">
-                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 flex justify-between items-center">
-                        <span class="font-bold text-sm">Jerk Pork (1/2 lb) - $1,500</span>
-                        <button onclick="addToCart('Jerk Pork (1/2 lb)', 1500)" class="bg-zinc-800 text-orange-500 w-10 h-10 rounded-full font-black text-lg active:scale-90 transition">+</button>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-5 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-sm">Jerk Pork (1/2 lb)</h3>
+                        <span class="text-orange-500 font-black">$1,500</span>
                     </div>
-                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 flex justify-between items-center">
-                        <span class="font-bold text-sm">Boston Bay Sausage - $900</span>
-                        <button onclick="addToCart('Boston Bay Sausage', 900)" class="bg-zinc-800 text-orange-500 w-10 h-10 rounded-full font-black text-lg active:scale-90 transition">+</button>
+                    <button onclick="addToCart('Jerk Pork', 1500)" class="bg-zinc-800 text-orange-500 px-6 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                </div>
+
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-5 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-sm">Boston Bay Sausage</h3>
+                        <span class="text-orange-500 font-black">$900</span>
                     </div>
-                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 flex justify-between items-center">
-                        <span class="font-bold text-sm">876 Jerk Burger - $1,400</span>
-                        <button onclick="addToCart('876 Jerk Burger', 1400)" class="bg-zinc-800 text-orange-500 w-10 h-10 rounded-full font-black text-lg active:scale-90 transition">+</button>
+                    <button onclick="addToCart('Jerk Sausage', 900)" class="bg-zinc-800 text-orange-500 px-6 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                </div>
+
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-5 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-sm">876 Jerk Burger</h3>
+                        <span class="text-orange-500 font-black">$1,400</span>
                     </div>
-                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 flex justify-between items-center">
-                        <span class="font-bold text-sm">Grilled Jerk Fish - $2,500</span>
-                        <button onclick="addToCart('Grilled Jerk Fish', 2500)" class="bg-zinc-800 text-orange-500 w-10 h-10 rounded-full font-black text-lg active:scale-90 transition">+</button>
+                    <button onclick="addToCart('876 Burger', 1400)" class="bg-zinc-800 text-orange-500 px-6 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                </div>
+
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-5 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-sm">Grilled Jerk Fish</h3>
+                        <span class="text-orange-500 font-black">$2,500</span>
                     </div>
-                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 flex justify-between items-center">
-                        <span class="font-bold text-sm">Veggie Jerk Pizza - $1,800</span>
-                        <button onclick="addToCart('Veggie Jerk Pizza', 1800)" class="bg-zinc-800 text-orange-500 w-10 h-10 rounded-full font-black text-lg active:scale-90 transition">+</button>
+                    <button onclick="addToCart('Jerk Fish', 2500)" class="bg-zinc-800 text-orange-500 px-6 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
+                </div>
+
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-5 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-sm">Veggie Jerk Pizza</h3>
+                        <span class="text-orange-500 font-black">$1,800</span>
                     </div>
+                    <button onclick="addToCart('Veggie Pizza', 1800)" class="bg-zinc-800 text-orange-500 px-6 py-2 rounded-xl font-black text-xs active:scale-90 transition">ADD +</button>
                 </div>
             </div>
         </section>
@@ -80,5 +93,12 @@
                     <button onclick="addToCart('Red Stripe', 500)" class="text-orange-500 font-black">$500 +</button>
                 </div>
                 <div class="p-5 flex justify-between items-center">
-                    <span class="font-bold text-sm">Dragon Stout</span>
-                    <button onclick="addToCart('Dragon Stout',
+                    <span class="font-bold text-sm">Coconut Water</span>
+                    <button onclick="addToCart('Coconut Water', 400)" class="text-orange-500 font-black">$400 +</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-6">
+            <h3 class="text-xs uppercase tracking-widest text-zinc-500 font-bold mb-4 px-2">Special Notes</h3>
+            <textarea id="notes" rows="2" class="w
