@@ -27,7 +27,7 @@
             </h2>
             <div class="grid gap-6">
                 
-                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
                     <img src="jerk-chicken.png" class="w-full h-48 object-cover">
                     <div class="p-5 flex justify-between items-center">
                         <div>
@@ -53,4 +53,84 @@
                     </div>
                     <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 flex justify-between items-center">
                         <span class="font-bold">Grilled Jerk Fish - $2,500</span>
-                        <button onclick="addToCart('Jerk Fish', 250
+                        <button onclick="addToCart('Jerk Fish', 2500)" class="bg-zinc-800 text-orange-500 w-10 h-10 rounded-full font-black text-lg active:scale-90 transition">+</button>
+                    </div>
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800 flex justify-between items-center">
+                        <span class="font-bold">Veggie Jerk Pizza - $1,800</span>
+                        <button onclick="addToCart('Veggie Pizza', 1800)" class="bg-zinc-800 text-orange-500 w-10 h-10 rounded-full font-black text-lg active:scale-90 transition">+</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-blue-400">
+                <span class="w-8 h-[2px] bg-blue-400"></span> THE COOL DOWN
+            </h2>
+            <div class="bg-zinc-900 rounded-3xl border border-zinc-800 divide-y divide-zinc-800">
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Red Stripe</span>
+                    <button onclick="addToCart('Red Stripe', 500)" class="text-orange-500 font-black">$500 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Dragon Stout</span>
+                    <button onclick="addToCart('Dragon Stout', 600)" class="text-orange-500 font-black">$600 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Coconut Water</span>
+                    <button onclick="addToCart('Coconut Water', 400)" class="text-orange-500 font-black">$400 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Grapefruit Ting</span>
+                    <button onclick="addToCart('Ting', 350)" class="text-orange-500 font-black">$350 +</button>
+                </div>
+                <div class="p-5 flex justify-between items-center">
+                    <span class="font-bold">Homemade Sorrel</span>
+                    <button onclick="addToCart('Sorrel', 450)" class="text-orange-500 font-black">$450 +</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-6">
+            <h3 class="text-xs uppercase tracking-widest text-zinc-500 font-bold mb-4 px-2">Special Instructions</h3>
+            <textarea id="notes" rows="2" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-4 text-sm focus:ring-1 focus:ring-orange-500 outline-none" placeholder="e.g. No onions, extra spicy, etc."></textarea>
+        </section>
+
+    </main>
+
+    <div id="cart-bar" class="hidden fixed bottom-6 left-4 right-4 glass border border-zinc-700 p-4 rounded-3xl shadow-2xl z-50 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <button onclick="clearCart()" class="text-zinc-500 hover:text-red-500 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+            </button>
+            <div>
+                <p id="cart-count" class="text-[10px] text-zinc-500 font-bold uppercase">0 ITEMS</p>
+                <p id="cart-total" class="text-xl font-black text-white">$0</p>
+            </div>
+        </div>
+        <button onclick="checkout()" class="bg-orange-600 hover:bg-orange-500 text-white px-8 py-3 rounded-2xl font-black text-sm tracking-tighter transition shadow-lg shadow-orange-900/40">
+            CHECKOUT
+        </button>
+    </div>
+
+    <script>
+        const MY_WHATSAPP = "18765551234"; // IMPORTANT: Replace with your actual number
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateUI();
+            
+            const bar = document.getElementById('cart-bar');
+            bar.classList.add('cart-bounce');
+            setTimeout(() => bar.classList.remove('cart-bounce'), 300);
+        }
+
+        function clearCart() {
+            if(confirm("Empty your tray?")) {
+                cart = [];
+                updateUI();
+            }
+        }
+
+        function updateUI() {
