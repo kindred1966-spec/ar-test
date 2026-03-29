@@ -1,73 +1,85 @@
-<section>
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-orange-500">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>876 MEDIA EAT | Digital Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #09090b; }
+        .glass { background: rgba(24, 24, 27, 0.8); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="text-zinc-100 font-sans pb-20 uppercase tracking-tight">
+
+    <header class="sticky top-0 z-50 glass border-b border-zinc-800 p-6 text-center">
+        <h1 class="text-3xl font-black tracking-tighter text-orange-500 italic">876 MEDIA EAT</h1>
+        <p class="text-zinc-500 text-[10px] tracking-widest mt-1">Authentic Jerk • Montego Bay</p>
+    </header>
+
+    <main class="p-4 max-w-md mx-auto space-y-10">
+        
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-orange-500">
                 <span class="w-8 h-[2px] bg-orange-500"></span> THE MAIN GRILL
             </h2>
-            <div class="grid gap-6">
-                <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-                    <img src="jerk-chicken.png" class="w-full h-48 object-cover opacity-90">
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-bold">Quarter Jerk Chicken</h3>
-                            <span class="text-orange-500 font-bold">$1,200</span>
+            <div class="grid gap-8">
+                
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-chicken.png" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-extrabold leading-tight">Quarter Jerk<br>Chicken</h3>
+                            <span class="text-orange-500 font-black text-xl">$1,200</span>
                         </div>
-                        <button onclick="orderItem('Quarter Jerk Chicken', '$1,200')" class="w-full mt-4 bg-zinc-100 text-black py-3 rounded-xl font-black uppercase text-sm tracking-tight active:scale-95 transition-transform">Add to Order</button>
+                        <button onclick="orderItem('Quarter Jerk Chicken', '$1,200')" class="w-full bg-zinc-100 text-black py-4 rounded-2xl font-black uppercase text-sm active:scale-95 transition-transform">Add to Order</button>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-                    <img src="jerk-pork.png" class="w-full h-48 object-cover opacity-90">
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-bold">Jerk Pork (1/2 lb)</h3>
-                            <span class="text-orange-500 font-bold">$1,500</span>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-pork.png" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-extrabold leading-tight">Jerk Pork<br>(1/2 lb)</h3>
+                            <span class="text-orange-500 font-black text-xl">$1,500</span>
                         </div>
-                        <button onclick="orderItem('Jerk Pork', '$1,500')" class="w-full mt-4 bg-zinc-100 text-black py-3 rounded-xl font-black uppercase text-sm tracking-tight active:scale-95 transition-transform">Add to Order</button>
+                        <button onclick="orderItem('Jerk Pork', '$1,500')" class="w-full bg-zinc-100 text-black py-4 rounded-2xl font-black uppercase text-sm active:scale-95 transition-transform">Add to Order</button>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-                    <img src="jerk-sausage.png" class="w-full h-48 object-cover opacity-90">
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-bold">Boston Bay Sausage</h3>
-                            <span class="text-orange-500 font-bold">$900</span>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-sausage.png" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-extrabold leading-tight">Boston Bay<br>Sausage</h3>
+                            <span class="text-orange-500 font-black text-xl">$900</span>
                         </div>
-                        <button onclick="orderItem('Jerk Sausage', '$900')" class="w-full mt-4 bg-zinc-100 text-black py-3 rounded-xl font-black uppercase text-sm tracking-tight active:scale-95 transition-transform">Add to Order</button>
+                        <button onclick="orderItem('Jerk Sausage', '$900')" class="w-full bg-zinc-100 text-black py-4 rounded-2xl font-black uppercase text-sm active:scale-95 transition-transform">Add to Order</button>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-                    <img src="jerk-burger.png" class="w-full h-48 object-cover opacity-90">
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-bold">The "876" Jerk Burger</h3>
-                            <span class="text-orange-500 font-bold">$1,400</span>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-burger.png" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-extrabold leading-tight">The "876"<br>Jerk Burger</h3>
+                            <span class="text-orange-500 font-black text-xl">$1,400</span>
                         </div>
-                        <button onclick="orderItem('876 Burger', '$1,400')" class="w-full mt-4 bg-zinc-100 text-black py-3 rounded-xl font-black uppercase text-sm tracking-tight active:scale-95 transition-transform">Add to Order</button>
+                        <button onclick="orderItem('876 Burger', '$1,400')" class="w-full bg-zinc-100 text-black py-4 rounded-2xl font-black uppercase text-sm active:scale-95 transition-transform">Add to Order</button>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-                    <img src="jerk-fish.png" class="w-full h-48 object-cover opacity-90">
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-bold">Grilled Jerk Fish</h3>
-                            <span class="text-orange-500 font-bold">$2,500</span>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="jerk-fish.png" class="w-full h-52 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-extrabold leading-tight">Grilled<br>Jerk Fish</h3>
+                            <span class="text-orange-500 font-black text-xl">$2,500</span>
                         </div>
-                        <button onclick="orderItem('Jerk Fish', '$2,500')" class="w-full mt-4 bg-zinc-100 text-black py-3 rounded-xl font-black uppercase text-sm tracking-tight active:scale-95 transition-transform">Add to Order</button>
+                        <button onclick="orderItem('Jerk Fish', '$2,500')" class="w-full bg-zinc-100 text-black py-4 rounded-2xl font-black uppercase text-sm active:scale-95 transition-transform">Add to Order</button>
                     </div>
                 </div>
 
-                <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-                    <img src="veggie-pizza.png" class="w-full h-48 object-cover opacity-90">
-                    <div class="p-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-bold">Veggie Jerk Pizza</h3>
-                            <span class="text-orange-500 font-bold">$1,800</span>
-                        </div>
-                        <p class="text-zinc-400 text-sm mt-2">Thin crust topped with jerk-marinated peppers, onions, and plantain.</p>
-                        <button onclick="orderItem('Veggie Jerk Pizza', '$1,800')" class="w-full mt-4 bg-zinc-100 text-black py-3 rounded-xl font-black uppercase text-sm tracking-tight active:scale-95 transition-transform">Add to Order</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+                    <img src="veggie-pizza.png" class="w-full h-52 object-cover">
+                    <div class="
