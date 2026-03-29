@@ -82,4 +82,70 @@
 
                 <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
                     <img src="veggie-pizza.png" class="w-full h-52 object-cover">
-                    <div class="
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-extrabold leading-tight">Veggie Jerk<br>Pizza</h3>
+                            <span class="text-orange-500 font-black text-xl">$1,800</span>
+                        </div>
+                        <p class="text-zinc-500 text-[10px] normal-case mb-4">Thin crust topped with jerk peppers, onions, and plantain slices.</p>
+                        <button onclick="orderItem('Veggie Jerk Pizza', '$1,800')" class="w-full bg-zinc-100 text-black py-4 rounded-2xl font-black uppercase text-sm active:scale-95 transition-transform">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-blue-400">
+                <span class="w-8 h-[2px] bg-blue-400"></span> THE COOL DOWN
+            </h2>
+            <div class="bg-zinc-900 rounded-3xl border border-zinc-800 divide-y divide-zinc-800 overflow-hidden">
+                <div class="p-6 flex justify-between items-center bg-zinc-900/50">
+                    <span class="font-bold">Red Stripe Lager</span>
+                    <button onclick="orderItem('Red Stripe', '$500')" class="text-orange-500 font-black">$500 +</button>
+                </div>
+                <div class="p-6 flex justify-between items-center">
+                    <span class="font-bold">Dragon Stout</span>
+                    <button onclick="orderItem('Dragon Stout', '$600')" class="text-orange-500 font-black">$600 +</button>
+                </div>
+                <div class="p-6 flex justify-between items-center bg-zinc-900/50">
+                    <span class="font-bold">Coconut Water</span>
+                    <button onclick="orderItem('Coconut Water', '$400')" class="text-orange-500 font-black">$400 +</button>
+                </div>
+                <div class="p-6 flex justify-between items-center">
+                    <span class="font-bold">Grapefruit Ting</span>
+                    <button onclick="orderItem('Ting', '$350')" class="text-orange-500 font-black">$350 +</button>
+                </div>
+                <div class="p-6 flex justify-between items-center bg-zinc-900/50">
+                    <span class="font-bold">Homemade Sorrel</span>
+                    <button onclick="orderItem('Sorrel', '$450')" class="text-orange-500 font-black">$450 +</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-10">
+            <h3 class="text-xs uppercase tracking-widest text-zinc-500 font-bold mb-4">Guest Feedback</h3>
+            <textarea id="comment" rows="3" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-4 text-sm focus:ring-1 focus:ring-orange-500 outline-none" placeholder="Any special requests?"></textarea>
+            <button onclick="sendComment()" class="mt-4 w-full text-zinc-400 text-xs font-bold py-3 border border-zinc-800 rounded-xl">Submit Comment</button>
+        </section>
+
+    </main>
+
+    <script>
+        // REPLACE THIS WITH YOUR BUSINESS NUMBER
+        const MY_WHATSAPP = "18765551234"; 
+
+        function orderItem(itemName, price) {
+            const message = `NEW ORDER REQUEST:\n------------------\nItem: ${itemName}\nPrice: ${price}\n------------------\nPlease confirm my order!`;
+            window.open(`https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function sendComment() {
+            const comment = document.getElementById('comment').value;
+            if(!comment) return;
+            const message = `GUEST FEEDBACK:\n"${comment}"`;
+            window.open(`https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
+            document.getElementById('comment').value = '';
+        }
+    </script>
+</body>
+</html>
